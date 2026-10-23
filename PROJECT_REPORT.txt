@@ -1,0 +1,40 @@
+SOCIAL MEDIA RECOMMENDATION SYSTEM
+Data Analytics – Month 2 Major Project
+
+Student Name: Vaishnavi Satish Shinde
+Batch: JULY_2026
+Month: 2
+
+1. INTRODUCTION
+Social media platforms collect large amounts of user-interaction data. A recommendation system can use this behavior to suggest content that is relevant to each user. This project analyzes social-media interactions and builds an item-based collaborative-filtering recommendation system.
+
+2. OBJECTIVE
+• Analyze user interactions.
+• Convert actions into numerical engagement scores.
+• Recommend unseen content from a user's past behavior.
+• Explain the recommendation algorithm.
+• Validate the system using ranking metrics.
+
+3. DATASET
+The project includes a synthetic dataset with user_id, item_id, category, platform, interaction_type, dwell_seconds, session_count, timestamp and engagement. A separate items.csv file maps content IDs to categories.
+
+4. PREPROCESSING
+Interaction weights are View=1, Like=3, Comment=4 and Share=5. Repeated user-item interactions are aggregated and converted into a user-item engagement matrix.
+
+5. ALGORITHM
+The main method is item-based collaborative filtering. Cosine similarity is calculated between content items using their interaction patterns. For each user, the system scores unseen items using the similarity of items the user has already interacted with, then returns the Top-K highest-scoring items.
+
+6. WHY COSINE SIMILARITY
+Cosine similarity compares the direction of interaction vectors and works well with sparse user-item matrices. It provides a simple baseline for finding content with similar interaction patterns.
+
+7. VALIDATION
+A chronological holdout is used: earlier interactions are treated as training data and the latest interaction as a test item. Precision@K measures relevant recommendations in the Top-K list. Recall@K measures whether the relevant test item was retrieved. NDCG@K gives more credit when the relevant item appears near the top.
+
+8. LIMITATIONS
+The dataset is synthetic, so results demonstrate the method rather than real platform performance. A production system would require cold-start handling, larger-scale infrastructure, privacy controls, diversity and freshness mechanisms, and online A/B testing.
+
+9. FUTURE ENHANCEMENTS
+Possible improvements include hybrid collaborative/content-based models, matrix factorization, neural recommenders, popularity and freshness signals, recommendation diversity, and online experimentation.
+
+10. CONCLUSION
+The project demonstrates the complete recommendation workflow: data preparation, behavioral modeling, similarity calculation, personalized Top-K recommendations, and offline validation.
